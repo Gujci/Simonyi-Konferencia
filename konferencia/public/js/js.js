@@ -36,7 +36,7 @@ $(document).ready(function() {
 	}
 
     $('.animation-section').height($(window).height() - 100);
-    $('.map').height($(window).height() - 460);
+    $('.map').height($(window).height() - 650);
     window.setTimeout(function(){
         $('.animation-section').addClass("on");
         $('nav').addClass('on');

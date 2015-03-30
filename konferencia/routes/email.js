@@ -16,7 +16,7 @@ router.post('/', function(req, res) {
         res.send('A regisztráció időszaka lezárult.')
     }
     else {
-        if (req.body.name === '' || req.body.email === '' || req.body.comesfrom === '' || req.body.info === '') {
+        if (req.body.name === '' || req.body.email === '' || req.body.comesfrom === '') {
             res.send('Hiányzó adat!');
         } else {
             var stmt = db.prepare('INSERT INTO ' + sqlname + ' (name, email, comesfrom, info) VALUES (?, ?, ?, ?)');

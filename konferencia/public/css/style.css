@@ -326,8 +326,16 @@ input[type="submit"]:hover {
 }
 
 .contact-item {
-	display: table;
-	margin: 0 auto 60px;
+	display: inline-block;
+    width: 45%;
+    text-align: center;
+    margin: 0 0 60px;
+    border: 0;
+    padding: 0;
+}
+
+.contact-item:first-of-type {
+    margin-right: 9%;
 }
 
 .speaker-head {
@@ -361,13 +369,22 @@ h4,
 
 .contact-item h4 {
 	font-size: 35px;
-	padding-top: 25px;
+    line-height: 148px;
+	padding-top: 0;
+    margin-left: 0;
+    display: block;
 }
 
 .contact-item h3 {
 	color: #666;
 	font-size: 25px;
 	line-height: 40px;
+    margin-left: 0;
+    display: block;
+}
+
+.contact-item h3:first-of-type {
+    margin-top: 40px;
 }
 
 /* partners */
