@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var scroll_offset = 41;
-	
+
 	$('#registration-button').on('click', registration);
 	$('#contact-button').on('click', contact);
 
@@ -34,11 +34,15 @@ $(document).ready(function() {
 	if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 		var s = skrollr.init();
 	}
-	
-	$('.animation-section').height($(window).height() - 100).addClass("on");
-	$('header').addClass('on');
-	$('nav').addClass('on');
-	$('.content').addClass('on');
+
+    $('.animation-section').height($(window).height() - 100);
+    $('.map').height($(window).height() - 460);
+    window.setTimeout(function(){
+        $('.animation-section').addClass("on");
+        $('nav').addClass('on');
+        $('.content').addClass('on');
+    },500);
+
 
 	function hideNotification() {
 		console.log('hideNotification');
@@ -97,4 +101,32 @@ $(document).ready(function() {
 			}
 		});
 	}
+});
+
+
+function initialize() {
+    var myLatlng = new google.maps.LatLng(47.472500,19.059737);
+    var mapOptions = {
+        zoom: 15,
+        center: myLatlng,
+        disableDefaultUI: true,
+        draggable: false,
+        zoomControl: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true
+    };
+    var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'XII. Simonyi Konferencia'
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+$(window).on('beforeunload', function(){
+    $(window).scrollTop(0);
 });

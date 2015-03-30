@@ -6,16 +6,17 @@
 		<title>XII. Simonyi Konferencia</title>
 		<script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="/js/skrollr.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 		<script type="text/javascript" src="/js/js.js"></script>
 	</head>
 	<body>
 		<nav>
 			<div class="menu">
 				<a href="#information">Információ</a>
-				<a href="#registration">Regisztráció</a>
 				<a href="#speakers">Előadók</a>
+                <a href="#registration">Regisztráció</a>
 				<a href="#contact">Kapcsolat</a>
-				<a href="#partners">Partnereink</a>
+				<a href="#partners">Támogatóink</a>
 				<a href="http://bss.sch.bme.hu/meetup" target="_blank">STREAM</a>
 			</div>
 		</nav>
@@ -36,6 +37,9 @@
 
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
 				</div>
+                <div class="section-content map" id="map-canvas">
+
+                </div>
 			</section>
 
 			<section class="simple-section section-speakers" id="speakers">
@@ -44,48 +48,15 @@
 					<h2>Előadók</h2>
 				</div>
 				<div class="section-content wrap">
-                    <div class="speaker-item clear">
-                        <div class="speaker-head"><img src="/images/profile_images/Vajta.jpg" alt="Dr. Vajta László"></div>
-                        <h4>Dr. Vajta László <br/> <span>Dékán, BME VIK, az est fővédnöke</span></h4>
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                    <div class="speaker-item clear">
-                        <div class="speaker-head"><img src="/images/profile_images/Litkai.png" alt="Litkai Gergely"></div>
-                        <h4>Litkai Gergely <br/> <span>Humorista, Dumaszínház</span></h4>
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                    <div class="speaker-item clear">
+
+                    <!--<div class="speaker-item clear">
                         <div class="speaker-head"><img src="/images/profile_images/DSC_5911.JPG" alt="Dr. Imre Sándor"></div>
                         <h4>Dr. Imre Sándor <br/> <span>Egyetemi tanár, BME HIT</span></h4>
                         <h3>Kvantuminformatika mérnöki szemmel</h3>
                         <p>A kvantum mechanikai végre kifér a laboratóriumok ajtaján! Mennyire általánosíthatók a klasszikus mérnöki tervezési eszközök a kvantum berendezések fejlesztése során? Milyen távközlési és informatikai alkalmazások várhatók? Hogyan programozhatók majd a kvantum számítógépek?</p>
-                    </div>
-					<div class="speaker-item clear">
-						<div class="speaker-head"><img src="/images/profile_images/KisZsolt-1.jpg" alt="Kis Zsolt"></div>
-						<h4>Kis Zsolt <br/> <span>fizikus, MTA Wigner Fizikai Kutatóközpont</span></h4>
-						<h3>Kvantumos információ megosztásnak és feldolgozásnak fizikai alapjai</h3>
-						<p>A kvantummechanikai jelenségeken alapuló információ megosztás és feldolgozás körülbelül harminc éves múltra tekint vissza. Milyen kísérleti javaslatokat publikáltak az elméleti sémák kidolgozása mellett? Melyik terület jutott a legmesszebb gyakorlati alkalmazás szempontjából? Melyek a legnevezetesebb fizikai rendszerek és kísérleti sémák, amelyeket információ megosztáshoz és feldolgozáshoz használnak?</p>
-					</div>
-					<div class="speaker-item clear">
-						<div class="speaker-head"><img src="/images/profile_images/m1-68698-03353200.jpg" alt="Dr. Orosz László"></div>
-						<h4>Dr. Orosz László<br/> <span>egyetemi docens, BME-TTK</span></h4>
-						<h3>Kvantumfilozófia –„Értem én, értem! Csak fel nem foghatom!”</h3>
-						<p>A modern fizika kialakulása valódi tudományos forradalom volt, és alapvetően változtatta meg a „Valóságról” alkotott elképzeléseinket. De hát mi is az a „Valóság”, amit annyira áhítunk megismerni? A kvantummechanika megszületése a „mindennek oka van” alapvetőnek vélt igazságot döntötte romba. Mégis miért filozofálgatunk annyit azokon a furcsa jelenségeken, amit a kvantummechanika mai kísérletei mutatnak?</p>
-					</div>
-					<div class="speaker-item clear">
-						<div class="speaker-head"><img src="/images/profile_images/bacsardi_2014_v2.jpg" alt="Dr. Bacsárdi László"></div>
-						<h4>Dr. Bacsárdi László<br/> <span>egyetemi tanár, BME-HIT</span></h4>
-						<h3>Kvantumkommunikáció: izgalmas jelen, rejtelmes jövő</h3>
-						<p>Hány Nobel-díj szükséges egy papíron megtervezett kvantuminformatikai algoritmus gyakorlati megvalósításához? Milyen kvantummechanikai elveken működő kereskedelmi eszközöket találhatunk napjainkban? Mit ígér a jövő a biztonságos kvantumkommunikáció területén? Hogyan tudnak hozzájárulni ehhez a területhez a hazai szakemberek? </p>
-					</div>
-                    <div class="speaker-item clear">
-                        <div class="speaker-head"><img src="/images/profile_images/nadasi.jpg" alt="Nádasi András"></div>
-                        <h4>Nádasi András<br/> <span>Borász, VSOP Balaton-felvidék </span></h4>
-                        <h3></h3>
-                        <p></p>
-                    </div>
+                    </div>-->
+                <h3>Bővebb információ hamarosan...</h3>
+
 				</div>
 			</section>
             <section class="simple-section section-registration" id="registration">
@@ -114,10 +85,10 @@
 				</div>
 				<div class="section-content wrap">
 					<div class="contact-item clear">
-						<div class="speaker-head"><img src="/images/profile_images/lilla.jpg" alt="Berta Lilla"></div>
-						<h4>Berta Lilla</h4>
-						<h3>berta.lilla@sch.bme.hu</h3>
-						<h3>06-30-342-4249</h3>
+						<div class="speaker-head"><img src="/images/profile_images/gabor.jpg" alt="Takács Gábor"></div>
+						<h4>Takács Gábor</h4>
+						<h3>takacs.gabor@simonyi.bme.hu</h3>
+						<h3>06-TODO</h3>
 					</div>
 
 				</div>
@@ -125,13 +96,22 @@
 			<section class="simple-section section-partners" id="partners">
 				<div class="section-header">
 					<div class="section-header-bg" data-bottom-top="transform: translateY(0px);" data-top-bottom="transform: translateY(-40px);"></div>
-					<h2>Partnereink</h2>
+					<h2>Támogatóink</h2>
 				</div>
-				<div class="section-content wrap">
+				<div class="section-content">
 					<div class="partners-table clear">
-						<div class="partner"><img src="/images/PPS-SCH-2014.png"></div>
-						<div class="partner"><img src="/images/simonyi.png"></div>
-
+						<div class="partner"><img src="/images/logos/sap.png"></div>
+						<div class="partner"><img src="/images/logos/thyssen.png"></div>
+						<div class="partner"><img src="/images/logos/nng.png"></div>
+						<div class="partner"><img src="/images/logos/vodafone.png"></div>
+						<div class="partner"><img src="/images/logos/lightware.png"></div>
+						<div class="partner"><img src="/images/logos/bosch.png"></div>
+						<div class="partner"><img src="/images/logos/accenture.png"></div>
+						<div class="partner"><img src="/images/logos/balabit.png"></div>
+						<div class="partner"><img src="/images/logos/sicontact.png"></div>
+						<div class="partner"><img src="/images/logos/vik.png"></div>
+						<div class="partner"><img src="/images/logos/simonyi.png"></div>
+                        <div class="partner"><img src="/images/logos/PPS-SCH-2014.png"></div>
 					</div>			
 				</div>
 			</section>
