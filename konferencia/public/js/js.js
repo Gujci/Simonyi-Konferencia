@@ -35,8 +35,8 @@ $(document).ready(function() {
 		var s = skrollr.init();
 	}
 
-    $('.animation-section').height($(window).height() - 100);
-    $('.map').height($(window).height() - 650);
+    $('.animation-section').height($(window).height() - 41);
+    $('.map').height($(window).height() - 288 - $("#introinfo").height());
     window.setTimeout(function(){
         $('.animation-section').addClass("on");
         $('nav').addClass('on');
