@@ -36,7 +36,8 @@ $(document).ready(function() {
 	}
 
     $('.animation-section').height($(window).height() - 41);
-    $('.map').height($(window).height() - 288 - $("#introinfo").height());
+    var calculatedHeight = $(window).height() - 288 - $("#introinfo").height()
+    $('.map').height(calculatedHeight > 200 ? calculatedHeight : 200);
     window.setTimeout(function(){
         $('.animation-section').addClass("on");
         $('nav').addClass('on');
@@ -109,7 +110,7 @@ function initialize() {
     var mapOptions = {
         zoom: 15,
         center: myLatlng,
-        disableDefaultUI: true,
+        disableDefaultUI: false,
         draggable: false,
         zoomControl: false,
         scrollwheel: false,
