@@ -1,6 +1,8 @@
 @font-face {
     font-family: "Roboto";
-    src: url('../fonts/Roboto-Regular.ttf');
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype'),
+        url('../fonts/Roboto-Regular-webfont.eot') format("embedded-opentype"),
+        url('../fonts/Roboto-Regular-webfont.woff') format("woff");
 }
 
 * {
@@ -153,7 +155,7 @@ nav.on {
 }
 
 .animation-image img {
-	height: 500px;
+	height: 100%;
 	width: auto;
 }
 

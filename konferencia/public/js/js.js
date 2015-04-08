@@ -38,6 +38,7 @@ $(document).ready(function() {
     $('.animation-section').height($(window).height() - 41);
     var calculatedHeight = $(window).height() - 288 - $("#introinfo").height()
     $('.map').height(calculatedHeight > 200 ? calculatedHeight : 200);
+    $('.animation-image').height($(window).height() - 241)
     window.setTimeout(function(){
         $('.animation-section').addClass("on");
         $('nav').addClass('on');
