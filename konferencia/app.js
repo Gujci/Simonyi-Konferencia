@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/email', email);
 app.use('/contact', contact);
-app.use('/admin', admin);
+app.use('/admin/SMNY12konf', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
