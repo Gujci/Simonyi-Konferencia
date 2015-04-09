@@ -45,7 +45,6 @@ $(document).ready(function() {
         $('.content').addClass('on');
     },500);
 
-
 	function hideNotification() {
 		console.log('hideNotification');
 
@@ -67,8 +66,10 @@ $(document).ready(function() {
 			success: function(data) {
 				console.log(data);
 
-				$('#notification-area').fadeIn('500', hideNotification);
-				$('#notification-area').text(data);
+				//$('#notification-area').fadeIn('500', hideNotification);
+				//$('#notification-area').text(data);
+				$(".regform").hide(500);
+				$("#regdone").show(500);
 			},
 			complete: function(data) {
 				console.log(data);
