@@ -216,6 +216,10 @@ nav.on {
 	background-image: url('../images/headers/2.jpg');
 }
 
+.section-stream .section-header-bg {
+	background-image: url('../images/headers/1.jpg');
+}
+
 .section-registration .section-header-bg {
 	background-image: url('../images/headers/3.jpg');
 }
