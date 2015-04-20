@@ -428,6 +428,29 @@ ul,
 	transform: translate(-50%, -50%);
 }
 
+#stream table{
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#stream table h3 {
+    margin-left: 0;
+}
+
+table h2,h3,p {
+    position: relative;
+}
+
+#stream table .video {
+    width: 768px;
+    height: 432px;
+    background-color: #b2b2b2;
+    overflow: hidden;
+}
+
+
 /* footer */
 footer {
 	background-color: #b2b2b2;
