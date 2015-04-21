@@ -53,10 +53,10 @@ flowplayer("ib028", "/stream/flowplayer-3.2.18.swf", {
             { url: 'ib028-hd', bitrate: 2500, dh: true }
         ],
         urlResolvers: 'brselect',
+        live: true,
         provider: 'rtmp',
         connectionProvider: 'clustering',
-        autoPlay: false,
-        scaling: 'orig'
+        autoPlay: false
     },
     plugins:  {
         brselect: {
