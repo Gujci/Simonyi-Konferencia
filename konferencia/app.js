@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var email = require('./routes/email');
 var contact = require('./routes/contact');
 var admin = require('./routes/admin');
+var feedback = require('./routes/feedback');
 
 var app = express();
 
@@ -27,7 +28,7 @@ console.log(path.join(__dirname, './public/'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', feedback);
 app.use('/email', email);
 app.use('/contact', contact);
 app.use('/admin/SMNY12konf', admin);

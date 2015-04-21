@@ -1,0 +1,18 @@
+body {
+    background-size: cover;
+    background: #b2b2b2 url("../images/8.jpg") no-repeat;
+    text-align: center;
+}
+
+img {
+    height: 300px;
+    width: auto;
+}
+
+h3 {
+    margin-left: 0;
+}
+
+.form {
+    margin-top: 50px;
+}
