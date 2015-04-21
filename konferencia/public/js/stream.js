@@ -1,5 +1,5 @@
 var info = document.getElementById("info");
-flowplayer("ib026", "flowplayer-3.2.18.swf", {
+flowplayer("ib026", "/stream/flowplayer-3.2.18.swf", {
     clip: {
         bitrates: [
             { url: 'ib026-sd', bitrate: 2000, sd: true, isDefault: true },
@@ -8,11 +8,12 @@ flowplayer("ib026", "flowplayer-3.2.18.swf", {
         urlResolvers: 'brselect',
         live: true,
         provider: 'rtmp',
+        autoPlay: false,
         connectionProvider: 'clustering'
     },
     plugins:  {
         brselect: {
-            url: 'flowplayer.bitrateselect-3.2.14.swf',
+            url: '/stream/flowplayer.bitrateselect-3.2.14.swf',
             hdButton: {
                 place: 'controls',
                 splash: {
@@ -22,10 +23,10 @@ flowplayer("ib026", "flowplayer-3.2.18.swf", {
             }
         },
         rtmp: {
-            url: "flowplayer.rtmp-3.2.13.swf"
+            url: "/stream/flowplayer.rtmp-3.2.13.swf"
         },
         clustering: {
-            url: "flowplayer.cluster-3.2.10.swf",
+            url: "/stream/flowplayer.cluster-3.2.10.swf",
             hosts: [
                 { host: 'rtmp://stream-01.sch.bme.hu/konferencia' },
                 { host: 'rtmp://stream-02.sch.bme.hu/konferencia' },
@@ -45,7 +46,7 @@ flowplayer("ib026", "flowplayer-3.2.18.swf", {
         }
     }
 });
-flowplayer("ib028", "flowplayer-3.2.18.swf", {
+flowplayer("ib028", "/stream/flowplayer-3.2.18.swf", {
     clip: {
         bitrates: [
             { url: 'ib028-sd', bitrate: 2000, sd: true, isDefault: true },
@@ -54,11 +55,12 @@ flowplayer("ib028", "flowplayer-3.2.18.swf", {
         urlResolvers: 'brselect',
         provider: 'rtmp',
         connectionProvider: 'clustering',
+        autoPlay: false,
         scaling: 'orig'
     },
     plugins:  {
         brselect: {
-            url: 'flowplayer.bitrateselect-3.2.14.swf',
+            url: '/stream/flowplayer.bitrateselect-3.2.14.swf',
             hdButton: {
                 place: 'controls',
                 splash: {
@@ -68,10 +70,10 @@ flowplayer("ib028", "flowplayer-3.2.18.swf", {
             }
         },
         rtmp: {
-            url: "flowplayer.rtmp-3.2.13.swf"
+            url: "/stream/flowplayer.rtmp-3.2.13.swf"
         },
         clustering: {
-            url: "flowplayer.cluster-3.2.10.swf",
+            url: "/stream/flowplayer.cluster-3.2.10.swf",
             hosts: [
                 { host: 'rtmp://stream-01.sch.bme.hu/konferencia' },
                 { host: 'rtmp://stream-02.sch.bme.hu/konferencia' },
