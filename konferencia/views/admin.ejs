@@ -6,10 +6,26 @@
 </head>
 <body>
 <div style="position: relative; width: 1200px; left: calc(50% - 600px);">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="navbar-header">
+                    <span class="navbar-brand" style="pointer-events: none;">Konferencia Admin</span>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="menu" name="reg"><a href="#reg">Regisztráltak</a></li>
+                    <li class="menu" name="feedback"><a href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="jumbotron">
         <div class="container">
-            <h1>Összesen: <%= titleCount %></h1>
-            <table style='width: 100%; margin: 0; padding: 0; word-wrap: break-word; table-layout: fixed;' class='table table-striped'>
+            <!-- ko if: state() == 'reg' -->
+            <h1 data-bind="text: 'Összesen: ' + count"></h1>
+            <table style='width: 100%; margin: 0; padding: 0; word-wrap: break-word; table-layout: fixed;'
+                   class='table table-striped'>
+                <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -17,18 +33,66 @@
                     <th>From</th>
                     <th>Info</th>
                 </tr>
-                <% for(var i = 0; i < emails.length; i++) { %>
+                </thead>
+                <tbody data-bind="foreach: emails">
                 <tr>
-                    <td><%= emails[i].id %></td>
-                    <td><%= emails[i].name %></td>
-                    <td><%= emails[i].email %></td>
-                    <td><%= emails[i].comesfrom %></td>
-                    <td><%= emails[i].info %></td>
+                    <td data-bind="text: $data.id"></td>
+                    <td data-bind="text: $data.name"></td>
+                    <td data-bind="text: $data.email"></td>
+                    <td data-bind="text: $data.comesfrom"></td>
+                    <td data-bind="text: $data.info"></td>
                 </tr>
-                <% } %>
+                </tbody>
             </table>
+            <!-- /ko -->
+            <!-- ko if: state() == 'feedback' -->
+            <table style='width: 100%; margin: 20px 0 0;padding: 0; word-wrap: break-word; table-layout: fixed;'
+                   class='table table-striped'>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Feedback</th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: feedbacks">
+                <tr>
+                    <td data-bind="text: $data.name"></td>
+                    <td data-bind="text: $data.email"></td>
+                    <td data-bind="text: $data.text"></td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- /ko -->
         </div>
     </div>
 </div>
+<!-- jQuery -->
+<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+<!-- Knockout -->
+<script src='http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js'></script>
+<script>
+    var data = {
+        'count': <%- JSON.stringify(titleCount) %>,
+        'emails': <%- JSON.stringify(emails) %>,
+        'feedbacks': <%- JSON.stringify(feedbacks) %>,
+        'state': ko.observable('reg')
+    };
+
+    ko.applyBindings(data);
+
+    function processHash() {
+        elements = document.getElementsByClassName("menu");
+        for (i = 0; i < elements.length; ++i) {
+            elements[i].className = "menu";
+        }
+
+        var hash = window.location.hash.toString().replace('#', '') || "reg";
+        document.getElementsByName(hash)[0].className = "active menu";
+        data.state(hash);
+    }
+    $(window).on('hashchange', processHash);
+    processHash();
+</script>
 </body>
 </html>
