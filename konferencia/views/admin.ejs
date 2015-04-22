@@ -21,49 +21,53 @@
     </nav>
     <div class="jumbotron">
         <div class="container">
-            <!-- ko if: state() == 'reg' -->
-            <h1 data-bind="text: 'Összesen: ' + count"></h1>
-            <table style='width: 100%; margin: 0; padding: 0; word-wrap: break-word; table-layout: fixed;'
-                   class='table table-striped'>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>From</th>
-                    <th>Info</th>
-                </tr>
-                </thead>
-                <tbody data-bind="foreach: emails">
-                <tr>
-                    <td data-bind="text: $data.id"></td>
-                    <td data-bind="text: $data.name"></td>
-                    <td data-bind="text: $data.email"></td>
-                    <td data-bind="text: $data.comesfrom"></td>
-                    <td data-bind="text: $data.info"></td>
-                </tr>
-                </tbody>
-            </table>
-            <!-- /ko -->
-            <!-- ko if: state() == 'feedback' -->
-            <table style='width: 100%; margin: 20px 0 0;padding: 0; word-wrap: break-word; table-layout: fixed;'
-                   class='table table-striped'>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Feedback</th>
-                </tr>
-                </thead>
-                <tbody data-bind="foreach: feedbacks">
-                <tr>
-                    <td data-bind="text: $data.name"></td>
-                    <td data-bind="text: $data.email"></td>
-                    <td data-bind="text: $data.text"></td>
-                </tr>
-                </tbody>
-            </table>
-            <!-- /ko -->
+            <div data-bind="style: {display: regDisplay()}">
+                <h1>Összesen: <%= titleCount%></h1>
+                <table style='width: 100%; margin: 0; padding: 0; word-wrap: break-word; table-layout: fixed;'
+                       class='table table-striped'>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Név</th>
+                        <th>Email</th>
+                        <th>Honnan jött</th>
+                        <th>Honnan értesült</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for(var i=0; i<emails.length; i++) {%>
+                    <tr>
+                        <td><%= emails[i].id %></td>
+                        <td><%= emails[i].name %></td>
+                        <td><%= emails[i].email %></td>
+                        <td><%= emails[i].comesfrom %></td>
+                        <td><%= emails[i].info %></td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div data-bind="style: {display: feedbackDisplay()}">
+                <table style='width: 100%; margin: 20px 0 0;padding: 0; word-wrap: break-word; table-layout: fixed;'
+                       class='table table-striped'>
+                    <thead>
+                    <tr>
+                        <th>Név</th>
+                        <th>Email</th>
+                        <th>Feedback</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for(var i=0; i<feedbacks.length; i++) {%>
+                    <tr>
+                        <td> <%= feedbacks[i].name %></td>
+                        <td> <%= feedbacks[i].email %></td>
+                        <td> <%= feedbacks[i].text %></td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -73,10 +77,9 @@
 <script src='http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js'></script>
 <script>
     var data = {
-        'count': <%- JSON.stringify(titleCount) %>,
-        'emails': <%- JSON.stringify(emails) %>,
-        'feedbacks': <%- JSON.stringify(feedbacks) %>,
-        'state': ko.observable('reg')
+        feedbackDisplay: ko.observable('none'),
+        regDisplay: ko.observable('block')
+
     };
 
     ko.applyBindings(data);
@@ -89,7 +92,10 @@
 
         var hash = window.location.hash.toString().replace('#', '') || "reg";
         document.getElementsByName(hash)[0].className = "active menu";
-        data.state(hash);
+        for (var key in data){
+            data[key]('none');
+        }
+        data[hash + 'Display']('block');
     }
     $(window).on('hashchange', processHash);
     processHash();
