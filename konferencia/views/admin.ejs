@@ -15,6 +15,7 @@
                 <ul class="nav navbar-nav">
                     <li class="menu" name="reg"><a href="#reg">Regisztráltak</a></li>
                     <li class="menu" name="feedback"><a href="#feedback">Feedback</a></li>
+                    <li class="menu" name="feedback" style="position: absolute; right: 10px;"><a href="/admin/logout"><%= name%></a></li>
                 </ul>
             </div>
         </div>
@@ -79,7 +80,6 @@
     var data = {
         feedbackDisplay: ko.observable('none'),
         regDisplay: ko.observable('block')
-
     };
 
     ko.applyBindings(data);
