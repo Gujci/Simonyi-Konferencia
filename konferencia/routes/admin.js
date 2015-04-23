@@ -25,29 +25,46 @@ passport.use(new google_auth({
 ));
 
 router.get('/auth/google', passport.authenticate('google'));
-router.post('/auth/google/return', passport.authenticate('google', { successRedirect: 'localhost:3004/admin',
-    failureRedirect: 'admin/auth/google' }));
+router.post('/auth/google/return', passport.authenticate('google', { successRedirect: '/admin',
+    failureRedirect: '/admin/auth/google' }));
 
 router.get('/', function(req, res) {
-    if (req.query['openid.ext1.value.email'] == null) {
+    var email = req.query['openid.ext1.value.email']
+    if (email == null) {
         res.redirect('admin/auth/google');
     }
     else {
-        var username = req.query['openid.ext1.value.lastname'] + " " + req.query['openid.ext1.value.firstname']
-        var count = 0;
-        var emailData = [];
-        var feedbackData = [];
+        if (email.indexOf("simonyi.bme.hu") == -1) {
+            res.redirect('admin/auth/google');
+        }
+        else {
+            var username = req.query['openid.ext1.value.lastname'] + " " + req.query['openid.ext1.value.firstname']
+            var count = 0;
+            var emailData = [];
+            var feedbackData = [];
 
-        emails.each('SELECT DISTINCT * FROM ' + EMAILS_TABLE + " GROUP BY EMAIL ORDER BY ID ASC", function (err, row) {
-            emailData.push({id: row.id, name: row.name, email: row.email, comesfrom: row.comesfrom, info: row.info});
-            count++;
-        }, function (err, rows) {
-            feedbacks.each('SELECT * FROM ' + FEEDBACK_TABLE, function (err, row) {
-                feedbackData.push({name: row.name, email: row.email, text: row.feedback});
+            emails.each('SELECT DISTINCT * FROM ' + EMAILS_TABLE + " GROUP BY EMAIL ORDER BY ID ASC", function (err, row) {
+                emailData.push({
+                    id: row.id,
+                    name: row.name,
+                    email: row.email,
+                    comesfrom: row.comesfrom,
+                    info: row.info
+                });
+                count++;
             }, function (err, rows) {
-                res.render("admin", {titleCount: count, emails: emailData, feedbacks: feedbackData, name: username});
+                feedbacks.each('SELECT * FROM ' + FEEDBACK_TABLE, function (err, row) {
+                    feedbackData.push({name: row.name, email: row.email, text: row.feedback});
+                }, function (err, rows) {
+                    res.render("admin", {
+                        titleCount: count,
+                        emails: emailData,
+                        feedbacks: feedbackData,
+                        name: username
+                    });
+                });
             });
-        });
+        }
     }
 });
 
